@@ -19,18 +19,16 @@ from flask import Flask
 
 #############################################################
 ## Define Working Directory
-## BII
-working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight'
+working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight' # working directory goes here
 
-npz_directory = os.path.join(working_directory, 'lao_npz', 'unique')
-old_csv_directory = os.path.join(working_directory, 'old_csv_patient')
-new_csv_directory = os.path.join(working_directory, 'new_csv_patient')
+npz_directory = os.path.join(working_directory, 'npz')
+old_csv_directory = os.path.join(working_directory, 'old-csv')
+new_csv_directory = os.path.join(working_directory, 'new-csv')
 
 #############################################################
 ## Build App
 server = Flask(__name__)
 app = JupyterDash(server=server)
-# app = dash.Dash(server=server)
 
 #############################################################
 ## Defining color template
@@ -197,12 +195,12 @@ app.layout = html.Div(
                 html.Br(),
                 html.Br(),
 
-                ## Annotation Button goes here
-                html.Button(children='Reject',
-                            id='reject-button',
-                            n_clicks=0,
-                            style={'height': '50px', 'width': '100px'}
-                            ),
+                # ## Reject Button goes here (Disabled reject button for latest update 2020/11/30)
+                # html.Button(children='Reject',
+                #             id='reject-button',
+                #             n_clicks=0,
+                #             style={'height': '50px', 'width': '100px'}
+                #             ),
 
             ], style={'textAlign': 'center', 'width': '10%', 'float': 'left', 'display': 'inline-block'}
             ),
@@ -703,32 +701,32 @@ def export_anno_file(clicks, lower_bound, upper_bound, upper_max, npz_filename):
 
 
 ###############################################################################
-## Create an empty csv file for rejected frames (CB9)
-@app.callback(
-    Output('placeholder-2', 'children'),
-    [Input('reject-button', 'n_clicks')],
-    [State('npz-list', 'value')])
-def export_rejected_file(clicks, npz_filename):
-    if clicks != 0:
+# ## Create an empty csv file for rejected frames (CB9) (Disabled reject button for latest update 2020/11/30)
+# @app.callback(
+#     Output('placeholder-2', 'children'),
+#     [Input('reject-button', 'n_clicks')],
+#     [State('npz-list', 'value')])
+# def export_rejected_file(clicks, npz_filename):
+#     if clicks != 0:
 
-        ## If anno file exist, delete it
-        anno_filename = ''.join(['new-', str(npz_filename[4:-4]), '.csv'])
-        print(anno_filename)
-        anno_path = os.path.join(new_csv_directory, str(anno_filename))
-        print(anno_path)
+#         ## If anno file exist, delete it
+#         anno_filename = ''.join(['new-', str(npz_filename[4:-4]), '.csv'])
+#         print(anno_filename)
+#         anno_path = os.path.join(new_csv_directory, str(anno_filename))
+#         print(anno_path)
 
-        if os.path.exists(anno_path):
-            os.remove(anno_path)
+#         if os.path.exists(anno_path):
+#             os.remove(anno_path)
 
-        ## Create and save empty file
-        empty_file = pd.DataFrame({})
-        empty_filename = ''.join(['new-', str(npz_filename[4:-4]), '-rejected.csv'])
-        empty_file_path = os.path.join(new_csv_directory, str(empty_filename))
+#         ## Create and save empty file
+#         empty_file = pd.DataFrame({})
+#         empty_filename = ''.join(['new-', str(npz_filename[4:-4]), '-rejected.csv'])
+#         empty_file_path = os.path.join(new_csv_directory, str(empty_filename))
 
-        np.savetxt(empty_file_path, empty_file, delimiter=',')
+#         np.savetxt(empty_file_path, empty_file, delimiter=',')
 
-    else:
-        raise PreventUpdate
+#     else:
+#         raise PreventUpdate
 
 
 #############################################################
@@ -760,7 +758,3 @@ def update_files_datatable(anno_clicks, reject_clicks):
 #############################################################
 ## JupyterDash
 app.run_server(port=8061, mode='external')
-
-## Dash
-# if __name__ == "__main__":
-#     app.run_server(debug=False, port=8000)
