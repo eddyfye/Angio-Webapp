@@ -19,7 +19,8 @@ from flask import Flask
 
 #############################################################
 ## Define Working Directory
-working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight' # working directory goes here
+# working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight' # working directory goes here
+working_directory = '/Users/eddyfye/Google Drive/A*Star/BII/Angio Project'
 
 npz_directory = os.path.join(working_directory, 'npz')
 old_csv_directory = os.path.join(working_directory, 'old-csv')
@@ -184,23 +185,23 @@ app.layout = html.Div(
             ], style={'textAlign': 'center', 'width': '10%', 'float': 'left', 'display': 'inline-block'}
             ),
 
-            ## Spilt Top Bar, 4
+            ## Spilt Top Bar, 4 (Disabled reject button for latest update 2020/11/30)
             html.Div([
-                html.Br(),
-                html.Label(
-                    children='Reject and Skip File',
-                    style={'textAlign': 'center', 'color': colors['text']},
-                ),
-
-                html.Br(),
-                html.Br(),
-
-                # ## Reject Button goes here (Disabled reject button for latest update 2020/11/30)
-                # html.Button(children='Reject',
-                #             id='reject-button',
-                #             n_clicks=0,
-                #             style={'height': '50px', 'width': '100px'}
-                #             ),
+                # html.Br(),
+                # html.Label(
+                #     children='Reject and Skip File',
+                #     style={'textAlign': 'center', 'color': colors['text']},
+                # ),
+                #
+                # html.Br(),
+                # html.Br(),
+                #
+                # # ## Reject Button goes here
+                # # html.Button(children='Reject',
+                # #             id='reject-button',
+                # #             n_clicks=0,
+                # #             style={'height': '50px', 'width': '100px'}
+                # #             ),
 
             ], style={'textAlign': 'center', 'width': '10%', 'float': 'left', 'display': 'inline-block'}
             ),
@@ -318,12 +319,12 @@ app.layout = html.Div(
                                     '3) Create the ‘npz’, ‘old-csv’, and ‘new-csv’ sub-folders\n'
                                     '3-1) ‘npz’ folder stores the preprocessed image files in npz format\n'
                                     '3-2) ‘old-csv’ folder stores the predicted annotations from the trained model in csv format\n'
-                                    '3-3) ‘new-csv’ folder stores the manually corrected annotations or rejected files in csv format\n'
+                                    '3-3) ‘new-csv’ folder stores the manually corrected annotations in csv format\n'
                                     '\n'
                                     '\n'
                                     'File format:\n'
-                                    'npz files ->  preprocessed image files in (frame, channel, width, height), width and height = 128, channel = 1\n'
-                                    'csv files -> \n'
+                                    'npz files -> preprocessed image files in (frame, channel, width, height), width and height = 128, channel = 1\n'
+                                    'csv files -> csv files saved as frame, annotation format\n'
                                     '\n'
                                     '\n'
                                     'Step-by-step guide:\n'
@@ -332,8 +333,7 @@ app.layout = html.Div(
                                     '3) When the desired good frames range have been selected using the sliders, click on the annotation button located at the top right-hand corner\n'
                                     '\n'
                                     '\n'
-                                    'Note: When the npz file has multiple good frames flanked by bad frames, reject the file with the reject button located on the top right-hand corner.\n'
-                                    'This will generate an empty csv file with ‘new-filenumber-rejected.csv’ in the ‘new-csv’ folder.\n'
+                                    'Note: When the npz file has multiple good frames flanked by bad frames, just move on to the next file. (do not annotate the npz file)\n'
                                     '\n'
                                     '\n'
                                     ),

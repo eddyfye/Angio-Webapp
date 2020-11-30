@@ -5,6 +5,7 @@ ansi2html=1.6.0=pypi_0
 appnope=0.1.0=pypi_0
 backcall=0.2.0=pypi_0
 blas=1.0=mkl
+brotli=1.0.9
 ca-certificates=2020.10.14=0
 certifi=2020.11.8=py38hecd8cb5_0
 chardet=3.0.4=pypi_0
