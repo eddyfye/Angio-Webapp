@@ -6,17 +6,18 @@ This webapp is designed for the annotation of angiograms under the ADDA project.
 
 - Clone the repo to your workstation
 
-```bash
-gh repo clone eddyfye/Angio-Webapp
+```
+git clone https://github.com/eddyfye/Angio-Webapp.git
+cd Angio-Webapp
 ```
 
 The python code was designed using Jupyter_dash on Jupyter notebook. It has been verified to work using either Juypter notebook or pycharm.
 
 - Setup a virtual environment with python (3.7 or 3.8) and install the necessary packages
 
-```python
+```
 pip install jupyter-dash
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 ```
