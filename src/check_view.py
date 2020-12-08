@@ -559,7 +559,7 @@ def export_anno_file(clicks, npz_filename):
             upper_bound = image_array.f.arr_0.shape[0]
 
             ## If empty file exist, delete it
-            empty_filename = ''.join(['new-', str(npz_filename[4:-4]), '-view.csv'])
+            empty_filename = ''.join(['new-', str(npz_filename[4:-4]), '.csv'])
             print(empty_filename)
             empty_path = os.path.join(new_csv_directory, str(empty_filename))
             print(empty_path)
@@ -574,7 +574,7 @@ def export_anno_file(clicks, npz_filename):
             for i in range(upper_bound + 1):
                 anno_file['Annotation'][i] = -1
 
-            anno_filename = ''.join(['new-', str(npz_filename[4:-4]), '-view.csv'])
+            anno_filename = ''.join(['new-', str(npz_filename[4:-4]), '.csv'])
             path = os.path.join(new_csv_directory, str(anno_filename))
 
             np.savetxt(path, anno_file, delimiter=',', fmt='%d')
