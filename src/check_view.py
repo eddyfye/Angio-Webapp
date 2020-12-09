@@ -386,19 +386,19 @@ def update_image(filename):
         print(base_number)
 
         if base_number != 0:
-            image_neg2 = image_array[base_number,0,:,:]
+            image_neg2 = image_array[base_number * 6,0,:,:]
             image_neg2 = np.repeat(image_neg2[:,:, np.newaxis], 3, axis = 2)
 
-            image_neg1 = image_array[base_number * 2,0,:,:]
+            image_neg1 = image_array[base_number * 7,0,:,:]
             image_neg1 = np.repeat(image_neg1[:,:, np.newaxis], 3, axis = 2)
 
-            image_centre = image_array[base_number * 3, 0, :, :]
+            image_centre = image_array[base_number * 8, 0, :, :]
             image_centre = np.repeat(image_centre[:, :, np.newaxis], 3, axis=2)
 
-            image_pos1 = image_array[base_number * 4, 0, :, :]
+            image_pos1 = image_array[base_number * 9, 0, :, :]
             image_pos1 = np.repeat(image_pos1[:, :, np.newaxis], 3, axis=2)
 
-            image_pos2 = image_array[base_number * 5, 0, :, :]
+            image_pos2 = image_array[base_number * 10, 0, :, :]
             image_pos2 = np.repeat(image_pos2[:, :, np.newaxis], 3, axis=2)
 
         else:
@@ -472,7 +472,7 @@ def update_image(filename):
         base_number = int(image_array.shape[0]/15)
 
         if base_number != 0:
-            image_neg2 = image_array[base_number*11,0,:,:]
+            image_neg2 = image_array[base_number * 11,0,:,:]
             image_neg2 = np.repeat(image_neg2[:,:, np.newaxis], 3, axis = 2)
 
             image_neg1 = image_array[base_number * 12,0,:,:]
