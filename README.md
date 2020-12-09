@@ -20,10 +20,6 @@ pip install jupyter-dash
 pip install -r requirement.txt
 ```
 
-```
-conda install -c conda-forge -c plotly jupyter-dash
-```
-
 - Connect to the CVPD secure storage and copy the following directory to your workstation
 
 ```
@@ -41,7 +37,7 @@ Example for someone working on RAO Caudal annotation
 /home/tanwp/Documents/data_26-8-2020/npz for annotation/RAO Caudal/
 ```
 
-### Step-by-step guide to using the webapp
+### Step-by-step guide to using the webapp for annotation (main.py)
 
 1) Select npz file from the dropdown list
 2) Use the sliders to view or adjust the lower and upper boundary images and annotations on the graph
@@ -50,3 +46,12 @@ Example for someone working on RAO Caudal annotation
 Note: When the npz file has multiple good frames flanked by bad frames, just move on to the next file. (do not annotate the npz file)
 
 ![Webapp Illustration](Webapp Illustration.png)
+
+### Step-by-step guide to using the webapp for checking of view (check_view.py)
+
+1) Select npz file from the dropdown list
+2) Check the resulting 15 images for signs of Left Coronary Artery(LCA, looks like hanging spiderweb) or Right Coronary Artery(RCA, C-shaped)
+3) Click on the annotation button located at the top right-hand corner
+4) Record the npz filename in the respective column in Google Sheets
+
+![Webapp check_view Illustration](Webapp check_view Illustration.png)

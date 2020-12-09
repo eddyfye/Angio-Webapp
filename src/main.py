@@ -19,8 +19,7 @@ from flask import Flask
 
 #############################################################
 ## Define Working Directory
-# working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight' # working directory goes here
-working_directory = '/Users/eddyfye/Google Drive/A*Star/BII/Angio Project'
+working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight' # working directory goes here
 
 npz_directory = os.path.join(working_directory, 'npz')
 old_csv_directory = os.path.join(working_directory, 'old-csv')

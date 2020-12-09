@@ -19,8 +19,7 @@ from flask import Flask
 
 #############################################################
 ## Define Working Directory
-# working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight' # working directory goes here
-working_directory = '/Users/eddyfye/Google Drive/A*Star/BII/Angio Project'
+working_directory = '/home/tanwp/Documents/data_26-8-2020/LAO_straight' # working directory goes here
 
 npz_directory = os.path.join(working_directory, 'npz')
 old_csv_directory = os.path.join(working_directory, 'old-csv')
@@ -134,7 +133,7 @@ app.layout = html.Div(
             ## The title for the webpage
             html.Div([
                 html.H1(
-                    children="Dash for Angio Analysis v2.1",
+                    children="Dash for Angio, Checking of View",
                     style={'textAlign': 'center', 'color': colors['text']}
                 ),
 
@@ -239,8 +238,9 @@ app.layout = html.Div(
                                     '\n'
                                     'Step-by-step guide:\n'
                                     '1) Select npz file from the dropdown list\n'
-                                    '2) Use the sliders to view or adjust the lower and upper boundary images and annotations on the graph\n'
-                                    '3) When the desired good frames range have been selected using the sliders, click on the annotation button located at the top right-hand corner\n'
+                                    '2) Check the resulting 15 images for signs of Left Coronary Artery(LCA, looks like hanging spiderweb) or Right Coronary Artery(RCA, C-shaped)\n'
+                                    '3) Click on the annotation button located at the top right-hand corner\n'
+                                    '4) Record the npz filename in the respective column in Google Sheets\n'
                                     '\n'
                                     '\n'
                                     'Note: When the npz file has multiple good frames flanked by bad frames, just move on to the next file. (do not annotate the npz file)\n'
@@ -296,7 +296,6 @@ def update_image(filename):
         image_array = image_array.f.arr_0
 
         base_number = int(image_array.shape[0]/15)
-        print(base_number)
 
         if base_number != 0:
             image_neg2 = image_array[base_number,0,:,:]
