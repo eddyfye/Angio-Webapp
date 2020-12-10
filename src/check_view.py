@@ -554,7 +554,7 @@ def export_anno_file(clicks, npz_filename):
     if clicks != 0:
 
         if npz_filename != 0:
-            image_array = np.load(os.path.join(npz_directory, str(filename)))
+            image_array = np.load(os.path.join(npz_directory, str(npz_filename)))
             upper_bound = image_array.f.arr_0.shape[0]
 
             ## If empty file exist, delete it
