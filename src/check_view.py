@@ -223,9 +223,9 @@ app.layout = html.Div(
                 html.H1('Instructions'),
                 dcc.Textarea(id='instructions',
                              value=('For first time users:\n'
-                                    '1) Before using the webapp, maximise the browser window and zoom out till you can see the lower slider\n'
+                                    '1) Before using the webapp, maximise the browser window and zoom out till you can see the 3rd row\n'
                                     '2) Change working directory stated in the main.py file\n'
-                                    '3) Create the ‘npz’, ‘old-csv’, and ‘new-csv’ sub-folders\n'
+                                    '3) Double check the presence of ‘npz’, ‘old-csv’, and ‘new-csv’ sub-folders in directory\n'
                                     '3-1) ‘npz’ folder stores the preprocessed image files in npz format\n'
                                     '3-2) ‘old-csv’ folder stores the predicted annotations from the trained model in csv format\n'
                                     '3-3) ‘new-csv’ folder stores the manually corrected annotations in csv format\n'
@@ -238,7 +238,7 @@ app.layout = html.Div(
                                     '\n'
                                     'Step-by-step guide:\n'
                                     '1) Select npz file from the dropdown list\n'
-                                    '2) Check the resulting 15 images for signs of Left Coronary Artery(LCA, looks like hanging spiderweb) or Right Coronary Artery(RCA, C-shaped)\n'
+                                    '2) Check the resulting 15 images for signs of Left Coronary Artery( LCA, looks like hanging spiderweb) or Right Coronary Artery(RCA, C-shaped)\n'
                                     '3) Click on the annotation button located at the top right-hand corner\n'
                                     '4) Record the npz filename in the respective column in Google Sheets\n'
                                     '\n'
